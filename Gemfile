@@ -2,20 +2,20 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.6'
-gem 'sass-rails', '~> 5.0'
-
-gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
+gem 'pg'
+gem 'sass-rails', '~> 5.0'
+gem 'rails', '4.2.6'
+gem 'uglifier', '>= 1.3.0'
 
 group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 
 group :development do
-end
-
-group :production do
-  gem 'rails_12factor'
+  gem 'pry'
+  gem 'pry-byebug'
 end
