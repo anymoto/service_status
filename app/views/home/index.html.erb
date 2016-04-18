@@ -1,0 +1,17 @@
+<section>
+  <% @status_messages.each do |s| %>
+    <ul>
+      <li>
+        <span>
+          <%= s.status %>
+        </span>
+        <span>
+          <%= s.message %>
+        </span>
+        <span>
+          <%= s.created_at %>
+        </span>
+      </li>
+    </ul>
+  <% end %>
+</section>
