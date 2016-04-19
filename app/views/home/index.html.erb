@@ -1,17 +1,22 @@
 <section>
-  <% @status_messages.each do |s| %>
-    <ul>
-      <li>
-        <span>
+  <table class='status'>
+    <tr>
+      <th class='heading cell'>Status</th>
+      <th class='heading cell'>Description</th>
+      <th class='heading cell'>Time</th>
+    </tr>
+    <% @status_messages.each do |s| %>
+      <tr class='row'>
+        <td class='cell'>
           <%= s.status %>
-        </span>
-        <span>
+        </td>
+        <td class='cell description'>
           <%= s.message %>
-        </span>
-        <span>
+        </td>
+        <td class='cell'>
           <%= s.created_at %>
-        </span>
-      </li>
-    </ul>
-  <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </section>

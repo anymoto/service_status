@@ -1,0 +1,23 @@
+.status {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 0;
+}
+
+.cell {
+  max-width: 250px;
+  min-width: 150px;
+  padding: 5px;
+}
+
+.heading {
+  text-align: left;
+}
+
+.description {
+  word-wrap: break-word;
+}
+
+.row {
+  border-top: 1px solid black;
+}
