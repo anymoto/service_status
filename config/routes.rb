@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   root 'home#index'
 
   namespace :api do
