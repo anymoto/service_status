@@ -3,7 +3,7 @@
 Litmus Status is a Ruby on Rails application that informs customers of whether Litmus
 is up or down along with a number of time stamped status messages.
 
-In order to run the application locally, follow these steps:
+## Running the application locally
 
 * Clone this repository:
 ```
@@ -33,7 +33,9 @@ see any status.
 ```
 curl --data "status_message[status]=UP&status_message[message]=Service was restored" http://localhost:3000/api/v1/status_messages
 ```
-  First status sent to the endpoint shouldn't be empty. Otherwise an Unprocessable Entry exception will be thrown.
-  To learn more about the API usage, you will find a reference [here](http://localhost:3000/api).
 
 * Once the status is stored, you will be able to see a populated list in the [home page](http://localhost:3000).
+
+## API Reference
+
+Locally, you will find the [API documentation here](http://localhost:3000/api).
