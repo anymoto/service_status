@@ -14,11 +14,6 @@ FactoryGirl.define do
     message 'Everything is ok'
   end
 
-  factory :status_message_without_message, parent: :status_message do
-    status  'UP'
-    message nil
-  end
-
   factory :status_not_allowed, parent: :status_message do
     status  'Unknown'
     message nil

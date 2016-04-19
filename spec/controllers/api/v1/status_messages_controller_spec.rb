@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 describe Api::V1::StatusMessagesController do
   describe 'POST #create' do
@@ -45,11 +46,11 @@ describe Api::V1::StatusMessagesController do
     end
 
     context 'with empty message' do
-      let(:status) { FactoryGirl.attributes_for(:status_message_without_message) }
+      let(:params) { { status_message: { status: 'UP' } } }
 
       it 'creates a new status' do
         expect {
-          post :create, status_message: status
+          post :create, params
         }.to change{ StatusMessage.count }.by(1)
       end
     end
