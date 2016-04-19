@@ -1,23 +1,23 @@
-# Litmus Status
+# Readme Status
 
-Litmus Status is a Ruby on Rails application that informs customers of whether Litmus
+Service Status is a Ruby on Rails application that informs customers of whether Readme
 is up or down along with a number of time stamped status messages.
 
 ## Running the application locally
 
 * Clone this repository:
 ```
-git clone git@github.com:anymoto/litmus_status.git
-```
-
-* Create the database and run the migrations:
-```
-bundle exec rake db:create && bundle exec rake db:migrate
+git clone git@github.com:anymoto/service_status.git
 ```
 
 * Install the dependencies:
 ```
 bundle install
+```
+
+* Create the database and run the migrations:
+```
+bundle exec rake db:create && bundle exec rake db:migrate
 ```
 
 * Start your local server:

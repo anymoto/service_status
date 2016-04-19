@@ -1,6 +1,6 @@
 development: &default
   adapter: postgresql
-  database: litmus_status_development
+  database: service_status_development
   encoding: utf8
   host: localhost
   min_messages: warning
@@ -9,10 +9,10 @@ development: &default
 
 test:
   <<: *default
-  database: litmus_status_test
+  database: service_status_test
 
 production: &deploy
-  database: litmus_status_production
+  database: service_status_production
   encoding: utf8
   min_messages: warning
   pool: 5
