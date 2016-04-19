@@ -1,4 +1,4 @@
-# Readme Status
+# Service Status
 
 Service Status is a Ruby on Rails application that informs customers of whether Readme
 is up or down along with a number of time stamped status messages.
