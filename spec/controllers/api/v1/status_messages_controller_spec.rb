@@ -35,12 +35,12 @@ describe Api::V1::StatusMessagesController do
 
     context 'when it\'s not the first status and attributes are malformed' do
       let!(:stored_status) { FactoryGirl.create(:status_message) }
-      let(:status) { FactoryGirl.create(:status_message) }
+      let(:params) { { invalid_object: { status: 'UP' } } }
 
       it 'does not save the new status' do
         expect {
-          post :create, invalid_object: status
-        }.to raise_error(ActionController::ParameterMissing)
+          post :create, params
+        }.not_to change{ StatusMessage.count }
       end
     end
 

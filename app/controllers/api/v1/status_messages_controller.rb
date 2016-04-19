@@ -2,9 +2,9 @@ class Api::V1::StatusMessagesController < Api::V1::ApplicationController
   def create
     status_message = StatusMessage.new(status_params)
     if status_message.save
-      render json: 'Success!', status: :ok
+      render json: status_message, status: :created
     else
-      render json: status_message.errors, status: :internal_server_error
+      render json: status_message.errors, status: :unprocessable_entity
     end
   end
 
