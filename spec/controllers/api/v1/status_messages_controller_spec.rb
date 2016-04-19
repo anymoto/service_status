@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 describe Api::V1::StatusMessagesController do
   describe 'POST #create' do

@@ -1,24 +1,29 @@
 class StatusMessage < ActiveRecord::Base
-  before_create :assign_status_if_missing
+  before_create :assign_missing_status, if: :status_is_missing?
   validate :new_status, on: :create
 
+  enum status: { DOWN: 0, UP: 1 }
   scope :latest, -> { order(created_at: :desc).limit(10) }
 
   private
 
-  def new_status
-    if is_first_status?
-      errors.add(:status, 'needs to be set the first time.')
-    end
+  def assign_missing_status
+    write_attribute(:status, StatusMessage.last.status)
   end
 
-  def assign_status_if_missing
-    #TODO: needs to think in a better way to do this
-    self.status = StatusMessage.last.status if status.blank?
-    true
+  def new_status
+    errors.add(:status, 'needs to be set the first time.') if status_is_required?
+  end
+
+  def status_is_missing?
+    read_attribute(:status).blank?
   end
 
   def is_first_status?
-    status.blank? && !StatusMessage.exists?
+    !StatusMessage.exists?
+  end
+
+  def status_is_required?
+    status_is_missing? && is_first_status?
   end
 end
