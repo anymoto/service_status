@@ -3,7 +3,7 @@ class Api::V1::ApplicationController < ActionController::Base
     render json: { message: 'Internal Server Error' }, status: :internal_server_error
   end
 
-  rescue_from ArgumentError do |exception|
+  rescue_from Apipie::ParamInvalid do
     render json: { error: 'Not a valid status' }, status: :unprocessable_entity
   end
 
