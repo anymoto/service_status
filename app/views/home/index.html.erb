@@ -1,22 +1,27 @@
+<h1>Litmus service status</h1>
 <section>
-  <table class='status'>
-    <tr>
-      <th class='heading cell'>Status</th>
-      <th class='heading cell'>Description</th>
-      <th class='heading cell'>Time</th>
-    </tr>
-    <% @status_messages.each do |s| %>
-      <tr class='row'>
-        <td class='cell'>
-          <%= s.status %>
-        </td>
-        <td class='cell description'>
-          <%= s.message %>
-        </td>
-        <td class='cell'>
-          <%= s.created_at %>
-        </td>
+  <% if @status_messages.any? %>
+    <table class='status'>
+      <tr>
+        <th class='heading cell'>Status</th>
+        <th class='heading cell'>Description</th>
+        <th class='heading cell'>Time</th>
       </tr>
-    <% end %>
-  </table>
+      <% @status_messages.each do |s| %>
+        <tr class='row'>
+          <td class='cell'>
+            <%= s.status %>
+          </td>
+          <td class='cell description'>
+            <%= s.message %>
+          </td>
+          <td class='cell'>
+            <%= s.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p>Nothing to display :(</p>
+  <%end%>
 </section>
