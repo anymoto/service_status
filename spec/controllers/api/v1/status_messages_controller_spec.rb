@@ -53,5 +53,15 @@ describe Api::V1::StatusMessagesController do
         }.to change{ StatusMessage.count }.by(1)
       end
     end
+
+    context 'with invalid status' do
+      let(:unknown_status) { FactoryGirl.attributes_for(:status_not_allowed) }
+
+      it 'does not save the new status' do
+        expect {
+          post :create, status_message: :unknown_status
+        }.not_to change{ StatusMessage.count }
+      end
+    end
   end
 end
