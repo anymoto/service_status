@@ -2,7 +2,7 @@ class User < ActiveRecord::Migration
   def up
     create_table :users do |t|
       t.string :email
-      t.string :authentication_token, lenght: 30, unique: true
+      t.string :authentication_token, length: 30, unique: true
 
       t.timestamps null: false
     end
