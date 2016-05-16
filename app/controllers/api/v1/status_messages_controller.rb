@@ -16,6 +16,8 @@ class Api::V1::StatusMessagesController < Api::V1::ApplicationController
   error code: 422, desc: 'Unprocessable Entity: it happens when params are malformed or status is not a valid.'
   error code: 500, desc: 'Internal Server Error: something is wrong on the server side.'
 
+  before_action :authenticate
+
   def create
     status_message = StatusMessage.new(status_params)
     if status_message.save
@@ -29,5 +31,11 @@ class Api::V1::StatusMessagesController < Api::V1::ApplicationController
 
   def status_params
     params.require(:status_message).permit(:status, :message)
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_token do |token, options|
+      User.find_by(authentication_token: token)
+    end
   end
 end
