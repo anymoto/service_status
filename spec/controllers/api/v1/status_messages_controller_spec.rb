@@ -6,7 +6,7 @@ describe Api::V1::StatusMessagesController do
     context 'with an invalid token' do
       before do
         @user = FactoryGirl.create(:user)
-        request.env['HTTP_AUTHORIZATION'] = "Token token='XYZ'"
+        request.env['HTTP_AUTHORIZATION'] = "Token token=XYZ"
       end
 
       context 'it\'s the first status and it\'s not empty' do
