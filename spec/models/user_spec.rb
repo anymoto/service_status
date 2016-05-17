@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 describe User do
   context 'when their authentication token already exists' do
