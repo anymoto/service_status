@@ -30,4 +30,6 @@ ActiveRecord::Schema.define(version: 20160516143936) do
     t.datetime "updated_at",           null: false
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+
 end
