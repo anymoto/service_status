@@ -7,8 +7,9 @@ class CreateStatusMessages < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    def down
-      drop_table :status_messages
-    end
+  end
+
+  def down
+    drop_table :status_messages
   end
 end
