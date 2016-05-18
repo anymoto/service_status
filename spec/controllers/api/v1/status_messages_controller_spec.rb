@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 describe Api::V1::StatusMessagesController do
+  describe 'GET #current' do
+    before do
+      @status_message = FactoryGirl.create(:status_message)
+      get :current
+    end
+
+    it 'returns the service current status' do
+      status_response = JSON.parse(response.body, symbolize_names: true)
+      expect(status_response[:message]).to eql(@status_message.message)
+    end
+  end
+
   describe 'POST #create' do
 
     context 'with an invalid token' do
