@@ -37,7 +37,7 @@ class Api::V1::StatusMessagesController < Api::V1::ApplicationController
 
   def current
     status = StatusMessage.current
-    if status
+    if status.present?
       render json: status, status: :ok
     else
       # Not sure if status should be 404 or 204
