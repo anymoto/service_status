@@ -36,7 +36,13 @@ class Api::V1::StatusMessagesController < Api::V1::ApplicationController
   ##############################################################
 
   def current
-    render json: StatusMessage.current, status: :ok
+    status = StatusMessage.current
+    if status
+      render json: status, status: :ok
+    else
+      # Not sure if status should be 404 or 204
+      render json: 'No content', status: :no_content
+    end
   end
 
   private
