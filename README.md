@@ -45,6 +45,12 @@ curl -H 'Authorization: Token token=USER_TOKEN' --data "status_message[status]=U
 
 * Once the status is stored, you will be able to see a populated list in the [home page](http://localhost:3000).
 
+* You can also get the service current status by doing:
+```
+curl -i http://localhost:3000/api/v1/status_messages/current
+```
+Authentication token is not needed in this case.
+
 ## API Reference
 
 Locally, you will find the [API documentation here](http://localhost:3000/api).
