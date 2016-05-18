@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  apipie
   root 'home#index'
 
-  namespace :api do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :status_messages, only: [:create]
+      post 'status_messages'          => 'status_messages#create'
+      get  'status_messages/current'  => 'status_messages#current'
     end
   end
+  apipie
 end

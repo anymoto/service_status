@@ -4,6 +4,7 @@ class StatusMessage < ActiveRecord::Base
 
   enum status: { DOWN: 0, UP: 1 }
   scope :latest, -> { order(created_at: :desc).limit(10) }
+  scope :current, -> { order(created_at: :desc).first }
 
   private
 
