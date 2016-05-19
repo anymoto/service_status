@@ -40,8 +40,7 @@ class Api::V1::StatusMessagesController < Api::V1::ApplicationController
     if status.present?
       render json: status, status: :ok
     else
-      # Not sure if status should be 404 or 204
-      render json: 'No content', status: :no_content
+      render json: 'not found', status: :not_found
     end
   end
 
