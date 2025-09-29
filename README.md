@@ -1,6 +1,6 @@
 # Service Status
 
-Service Status is a Ruby on Rails application that informs customers of whether Readme
+Service Status is a Ruby on Rails application that informs customers of whether our service
 is up or down along with a number of time stamped status messages.
 
 ## Running the application locally
